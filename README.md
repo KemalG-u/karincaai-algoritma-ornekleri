@@ -2,7 +2,24 @@
 
 Bu, dikte uygulaması veya bitmiş ürün değil; bağımsız C# kaynak örneğidir. Sentetik örneklerde ses bölgesi genişletme/birleştirme, parçalara ayırma, çıkartma, kenar ve kuyruk kırpma, fade; Latin karakter temizliği ve sınırlı anlam değişikliği uyarıları içerir. Bölge belirleme bir VAD değildir; sınırlar dışarıdan verilir. Latin filtresi karma alfabeli kelimeleri atabilir; anlam kapısı kural tabanlıdır, anlamın korunduğunu garanti etmez. Hassas, tıbbi, hukuki veya otomatik işlem kararlarında tek başına kullanılmamalıdır. `Chunks` uzun tek bölgeyi bölmez; ayrı ve limitten uzun parça bırakır. Fade özgün uygulamada ilk örneği de azaltır.
 
-## Çalıştırma ve sınırlar
+## Hızlı başlangıç / Quick start
+
+[.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ve Git gerekir. Depoyu klonlayıp klasöründe çalıştırın. / Install Git and the .NET 10 SDK, then clone and run from the repository directory:
+
+```sh
+git clone https://github.com/KemalG-u/karincaai-algoritma-ornekleri.git
+cd karincaai-algoritma-ornekleri
+dotnet build AlgorithmSamples.csproj --configfile NuGet.Config
+dotnet run --project AlgorithmSamples.csproj --no-build --no-restore
+```
+
+16 Kasım 2026'da bu iki derleme/çalıştırma komutunun eşdeğerleri, bu Windows bilgisayarda yeni yalıtılmış klasörde .NET SDK **10.0.402** ile denendi: derleme 0 uyarı ve 0 hatayla, çalıştırma `TOTAL 43 PASS` ile sonuçlandı. Başka işletim sistemi, bilgisayar veya SDK sürümü denenmedi; sonuç her ortam için garanti değildir.
+
+On 16 November 2026, equivalent build and run commands were tested in a fresh isolated directory on this Windows computer with .NET SDK **10.0.402**: the build had 0 warnings and 0 errors, and the run reported `TOTAL 43 PASS`. Other operating systems, computers and SDK versions were not tested; results are not guaranteed elsewhere.
+
+Bu doğrudan komutlar ortak koruma kilidini veya ağır iş kapısını kullanmaz; kendi aygıtınızda da otomatik olarak uygulanmazlar. Güvenli çalışma ve eşzamanlılık önlemleri kullanıcıya aittir. NuGet kaynaklarının kapalı olması, işletim sistemi düzeyinde tam ağ yalıtımı değildir. / These direct commands do not use the shared protection lock or heavy-job gate; those safeguards are not automatically applied on your device either. You are responsible for safe execution and concurrency controls. Clearing NuGet sources is not full OS-level network isolation.
+
+## Bu makineye özgü koşucu ve sınırlar
 
 Bu makinede Windows, Python ve mevcut portable .NET SDK **10.0.402** gerekir. Portföy ağacının mevcut `sdk` ve `test-kapisi` kardeş dizinlerine ve `D:/antigravity/_tmp/r133-kilit/agir.sh` kapısına bağlı test koşucusu:
 
@@ -29,7 +46,7 @@ Kaynak kodu ve yorumlar yerel olarak incelendi; belirgin dış kaynak kopyalama 
 
 A source-code sample, **not a dictation app or finished product**. It includes sample-index region planning and extraction, edge/tail trimming and fade, Latin-script filtering/retry policy, and a limited rule-based meaning-change gate. Region detection is not implemented. Long individual regions remain over the chunk limit. Filtering may discard mixed-script words; the gate does not guarantee preservation of meaning. Do not rely on it alone for sensitive decisions.
 
-The local Windows-only command above uses Python, the existing portable .NET SDK 10.0.402, the shared portfolio file lock and heavy-job gate. It builds offline with cleared NuGet sources, runs synthetic tests, and removes its own temporary output; paths are specific to this machine. The gate's key check is not a global atomic lock for unrelated callers. .NET itself is a separately licensed prerequisite.
+The machine-specific Windows-only runner above uses Python, the existing portable .NET SDK 10.0.402, the shared portfolio file lock and heavy-job gate. It builds with cleared NuGet sources, runs synthetic tests, and removes its own temporary output; paths are specific to this machine. The gate's key check is not a global atomic lock for unrelated callers. .NET itself is a separately licensed prerequisite.
 
 Synthetic tests cover empty/overlapping/unsorted regions, clamping, splitting boundaries, extraction, trimming, fade, Turkish and non-Latin text, fake retry and selected meaning checks. Real audio, recordings, microphone, ASR, VAD, models, CUDA and product integration were **not tested**. No SDK, binaries, models, third-party packages, wordfreq data, Zemberek, private data or build outputs are included. NuGet sources are cleared; full OS network isolation was not established.
 
@@ -37,14 +54,7 @@ Source lineage and exact source hashes are listed above. Planner XML comments we
 
 ## Bağımsız derleme ve ek sınırlar
 
-Bu makinede bütün derleme/test işlemleri yukarıdaki ortak kapılı koşucuyla yapılmalıdır. Başka güvenli bir ortamda .NET 10 SDK kurulu ve çalışma dizini bu klasör iken:
-
-```text
-dotnet build AlgorithmSamples.csproj --configfile NuGet.Config
-dotnet run --project AlgorithmSamples.csproj --no-build --no-restore
-```
-
-Bu iki doğrudan komut ortak kilidi almaz ve başka ortamda denenmedi. `tests/ExcludedFixture.cs` kasıtlı `#error` içerir; proje açık kaynak listesine eklenirse derleme durur.
+Bu makinede rutin derleme/test işlemleri yukarıdaki ortak kapılı koşucuyla yapılmalıdır. Hızlı başlangıçtaki doğrudan komutlar ortak kilidi almaz; yukarıda belirtilen Windows denemesi dışında başka ortamda denenmedi. `tests/ExcludedFixture.cs` kasıtlı `#error` içerir; proje açık kaynak listesine eklenirse derleme durur.
 
 Latin kontrolü tam Unicode Script sınıflandırıcısı değil, sınırlı aralık sezgisidir. `Ω` (U+2126) ve `Ω` gibi Latin dışı harfler karma kelimeyi attırır; kelime atmama modunda harf silinir. Türkçe ve Latin harfini izleyen U+0300–U+036F işaretler sınandı; diğer Latin aralıkları veya karmaşık işaret dizileri için garanti yoktur. `SuppressRegex` değiştirilmedi; gerçek tokenizer/model davranışı sınanmadı.
 
