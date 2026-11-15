@@ -23,7 +23,7 @@ Kaynak: `uygulama-adayi/src/WisperKemal.Core`, yerel seçki; kaynak projenin ken
 - `MeaningPreservationGate.cs`: `80fb78297c1e0fb6fd820155d9186d4fdf984df0db1798de1e216ee70ab35057` — artık byte olarak aynı değil; adayda seçili birimlere mg/g/kg, miligram ve bitişik yazım eklendi.
 - `WhisperNetSpeechSegmentDetector.cs`: `ce32523b18304373df3f07ad5b71ea40158ed4b275fcc9406134f89527dd6faf` — yalnız bağımsız `SpeechSegment` kayıt bildirimi ayrıldı; adaptör ve bağımlılığı alınmadı.
 
-Kaynak kodu ve yorumlar yerel olarak incelendi; belirgin dış kaynak kopyalama atfı bulunmadı. Bu, bütün köken veya haklar hakkında bağımsız hukuki güvence değildir. Hak sahibinin kendi katkılarını lisanslama iznine dayanır. `LICENSE`, `NOTICE.md` ve `SHA256SUMS` dosyalarına bakın. Yayına çıkmadan önce ayrıca bağımsız yayın/gizlilik ve hak kontrolü gerekir.
+Kaynak kodu ve yorumlar yerel olarak incelendi; belirgin dış kaynak kopyalama atfı bulunmadı. Bu, bütün köken veya haklar hakkında bağımsız hukuki güvence değildir. Hak sahibinin kendi katkılarını lisanslama iznine dayanır. `LICENSE`, `NOTICE.md` ve `SHA256SUMS` dosyalarına bakın. 15 Kasım 2026'da ilk yayımlanan sürüme GPT Astra ile statik kaynak/gizlilik incelemesi uygulandı. Bu AI incelemesi insan uzman denetiminin yerini tutmaz; tüm üçüncü taraf hak zincirinin tamamlandığını veya hukuki uygunluğu kanıtlamaz.
 
 ## English
 
@@ -33,7 +33,7 @@ The local Windows-only command above uses Python, the existing portable .NET SDK
 
 Synthetic tests cover empty/overlapping/unsorted regions, clamping, splitting boundaries, extraction, trimming, fade, Turkish and non-Latin text, fake retry and selected meaning checks. Real audio, recordings, microphone, ASR, VAD, models, CUDA and product integration were **not tested**. No SDK, binaries, models, third-party packages, wordfreq data, Zemberek, private data or build outputs are included. NuGet sources are cleared; full OS network isolation was not established.
 
-Source lineage and exact source hashes are listed above. Planner XML comments were removed and FadeOut fixed; LatinYazi and MeaningPreservationGate were modified in this candidate; the SpeechSegment record was extracted from the detector without its adapter. Local review found no explicit third-party copy attribution in the selected code, but this is not independent legal assurance. The owner's own contributions are licensed under MIT; third-party software is not relicensed. See LICENSE and NOTICE. Independent pre-publication privacy and rights review remains necessary.
+Source lineage and exact source hashes are listed above. Planner XML comments were removed and FadeOut fixed; LatinYazi and MeaningPreservationGate were modified in this candidate; the SpeechSegment record was extracted from the detector without its adapter. Local review found no explicit third-party copy attribution in the selected code, but this is not independent legal assurance. The owner's own contributions are licensed under MIT; third-party software is not relicensed. See LICENSE and NOTICE. On 15 November 2026, a static source-code and privacy review using GPT Astra was applied to the first published version. This AI review does not replace review by human experts and does not establish the full chain of third-party rights or compliance with applicable law.
 
 ## Bağımsız derleme ve ek sınırlar
 
