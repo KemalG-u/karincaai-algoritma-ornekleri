@@ -1,0 +1,7 @@
+# Notice / Bildirim
+
+Copyright (c) 2026 Kemal (KarıncaAI). The MIT licence applies to the selected project contributions included here, with the copyright holder's permission; it does not relicense .NET or any other third-party software. No third-party binary, model, data or package is included. The .NET SDK/runtime are separate third-party prerequisites under their own licences. Whisper, Silero, CUDA, Zemberek and wordfreq are not distributed here; names in the code are descriptive references, not endorsements.
+
+Seçilmiş proje katkıları hak sahibinin izniyle MIT kapsamındadır; .NET veya başka üçüncü taraf yazılımları yeniden lisanslamaz. Üçüncü taraf ikili dosya, model, veri veya paket dahil değildir. .NET SDK/çalışma zamanı kendi lisanslarına tabi ayrı önkoşullardır. Whisper, Silero, CUDA, Zemberek ve wordfreq burada dağıtılmaz. Kod içindeki adlar açıklama amaçlıdır; destek anlamına gelmez.
+
+The examples are synthetic; no external data, secret, model, DLL or dependency package is included. No independent human legal/rights or privacy review has been done; this is not evidence of an infringement, but a thorough provenance and rights review should not be assumed. / Örnekler sentetiktir; harici veri, secret, model, DLL veya bağımlılık paketi dahil değildir. Bağımsız insan uzmanlarca hukuk/hak ve gizlilik denetimi yapılmadı; bu bir ihlal kanıtı değildir, ancak kapsamlı köken ve hak incelemesi yapılmış sayılmamalıdır.
